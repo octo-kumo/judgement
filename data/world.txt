@@ -1,0 +1,585 @@
+who peecy wren "Peecy"
+who bios elder "Elder Bios"
+who rax fisher "Rax"
+who effie widow "Effie"
+who isa keeper "Isa"
+who elf clerk "Elf"
+who edi painter "Edi"
+who cass shopkeep "Cass"
+who rama innkeep "Rama"
+who jeecy ringer "Jeecy"
+who nib child "Nib"
+who sata farmer "Sata"
+who bus bus "Bus"
+who nemi nemi "Nemi"
+who rosi rosi "Rosi"
+who dex dex "Dex"
+who zee zee "Zee"
+who cy cy "Cy"
+who lao lao "Lao Da"
+who deepseek deepseek "DeepSeek-chan"
+
+zone square 32 26
+tiles
+TTTTTTTTTTTTT,,,,,,TTTTTTTTTTTTT
+T............,,,,,............bT
+T.b..........,,,,.............TT
+T............,,,,,.............T
+T............:::::.............T
+T......,,,,,,:::::,,,,,,.......T
+T......,,....:::::....,,.......T
+T......,,....:::::....,,......bT
+T......,,::::::::::::::,,......T
+T......,,::::::::::::::,.......T
+T......,,::::::::::::::,.......T
+T.....,,,::::::::::::::,,,,....T
+,,,,,,,,,::::::::::::::,,,,,,,,,
+,,,,,,,,,::::::::::::::,,,,,,,,,
+T.....,,,::::::::::::::,,......T
+T......,,::::::::::::::,,......T
+T......,,::::::::::::::,,......T
+T......,,,,,,,,,,,,,,,,,,......T
+T.........,,......,,...........T
+T.........,,......,,...........T
+T..b......,,......,,.......b...T
+T.........,,......,,...........T
+T.........................b....T
+T..b...........................T
+TT.......b.........b..........TT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+end
+mesh tower 15 3 0
+solid 14 2 3 3
+thing plaque 16 5 93
+mesh inn 4 7 3
+solid 2 5 5 5
+door 7 7 inn 5 8
+thing sign 7 9 91
+mesh shop 24 5 0
+solid 22 3 5 3
+solid 22 6 2 1
+solid 25 6 2 1
+door 24 6 shop 4 6
+thing sign 26 7 9F
+mesh stall 21 10 0
+solid 21 10 2 1
+thing painter 21 11
+mesh stele 16 12 0
+solid 16 12 1 1
+thing stele 16 13 A0
+mesh well 12 15 0
+solid 12 15 1 1
+thing well 12 16
+mesh elder_house 25 19 0
+solid 23 18 5 2
+solid 23 20 2 1
+solid 26 20 1 1
+door 25 20 elder 3 6
+mesh school 6 20 3
+solid 4 18 4 5
+thing rhyme 8 20 94
+mesh barrel 11 21 0
+solid 11 21 1 1
+thing barrel 11 21
+thing sign 20 9 90
+mesh lamppost 9 8 0
+mesh lamppost 22 8 0
+mesh lamppost 9 16 0
+mesh lamppost 22 16 0
+lamp 9 8
+lamp 22 8
+lamp 9 16
+lamp 22 16
+mesh bench 18 16 0
+mesh barrel 27 6 0
+mesh crates 20 4 0
+mesh fence_x 27 11 0
+mesh fence_x 27 14 0
+door 15 0 shrine 9 21
+door 16 0 shrine 10 21
+door 0 12 lake 26 10
+door 0 13 lake 26 11
+door 31 12 fields 1 11 gate
+door 31 13 fields 1 12 gate
+mesh gate 30 13 0
+spot plaza 15 14
+spot stele 16 14
+spot well 12 17
+spot wellside 13 18
+spot bench 18 17
+spot painter 21 12
+spot shopfront 24 8
+spot innfront 8 9
+spot school 9 21
+spot towerfoot 16 5
+spot gateway 28 12
+spot north 15 6
+spot west 3 12
+spot elderfront 25 21
+home edi 21 12
+home nib 10 21
+home jeecy 17 5
+home rosi 14 17
+home dex 19 9
+home cy 11 10
+
+mesh signpost 14 11 0
+solid 14 11 1 1
+thing crossroads 14 10
+mesh note 1 6 0
+thing note_credits 1 6
+mesh note 24 2 0
+thing note_resize 24 2
+mesh note 13 1 0
+thing note_hex 13 1
+mesh note 3 19 0
+thing note_yunix 3 19
+
+zone lake 28 22
+tiles
+TTTTTTTTTTTTTTTTTTTTTTTTTTTT
+T~~~~~~~~~~~~~~~~~~ss......T
+T~~~~~~~~~~~~~~~~~~ss......T
+T~~~~~s~~~~~~~~~~~~ss...b..T
+T~~~~~~~~~~~~~~~~~sss......T
+T~~~~~~~~~~~~~~~~~ss.......T
+T~~~~~~~~~~~~~~~~~ss.......T
+T~~~~~~~~~~~~~~~~~ss.......T
+T~~~~~~~~~~=======ss,,,,...T
+T~~~~~~~~~~~~~~~~~ss,,,,,,,,
+T~~~~~~~~~~~~~~~~~ss...,,,,,
+T~~~~~~~~~~~~~~~~~ss.....,,,
+T~~~~~~~~~~~~~~~~sss.......T
+T~~~~~~~~~~~~~~~~ss........T
+T~~~~~~~~~~~~~~~sss....b...T
+T~~~~~~~~~~~~~~~ss.........T
+T~~~~~~~~~~~~~sss..........T
+T~~~~~~~~~~~sss............T
+T~~~~~~~~sssss.......r.....T
+Tssssssssss...........b....T
+TT....b....................T
+TTTTTTTTTTTTTTTTTTTTTTTTTTTT
+end
+mesh hut 22 4 0
+solid 21 3 3 3
+thing net 23 6
+mesh boat 13 7 0
+mesh post 11 9 0
+thing boat 18 8
+door 27 9 square 1 12
+door 27 10 square 1 13
+door 27 11 square 1 13
+spot dock 17 8
+spot shore 19 11
+spot hutfront 22 6
+spot reeds 15 17
+spot deepspot 3 19
+home rax 18 8
+home effie 22 7
+spawn mudling 9 19
+spawn mudling 15 18
+
+mesh signpost 6 3 0
+thing flag_sign 6 3
+mesh signpost 19 7 0
+thing sign_nofish 19 8
+
+zone shrine 20 24
+tiles
+TTTTTTTTTTTTTTTTTTTT
+T..................T
+T...::::::::::::...T
+T...::::::::::::...T
+T...::::::::::::...T
+T...::::::::::::...T
+T...::::::::::::...T
+T......::::::......T
+T.......::::.......T
+T.......::::.......T
+T.......::::.......T
+T..b....::::....b..T
+T.......::::.......T
+TTTTTTTTPPPPTTTTTTTT
+TTTTTTTTPPPPTTTTTTTT
+TTTTTTTTPPPPTTTTTTTT
+T.......,,,,.......T
+T........,,........T
+T........,,........T
+T..b.....,,....b...T
+T........,,........T
+T........,,........T
+T........,,........T
+TTTTTTTTT,,TTTTTTTTT
+end
+mesh shrine 9 3 0
+solid 6 1 8 4
+thing prayer 10 6
+thing book 14 7
+mesh lectern 14 7 0
+solid 14 7 1 1
+mesh torii 9 14 0
+mesh effigies 5 9 0
+solid 5 9 1 1
+thing effigies 6 10
+mesh lantern 7 11 0
+mesh lantern 12 11 0
+lamp 7 11
+lamp 12 11
+door 9 23 square 15 1
+door 10 23 square 16 1
+spot altar 10 7
+spot lectern 15 9
+spot courtyard 9 10
+spot gatein 10 12
+spot gateout 9 16
+spot approach 9 19
+home isa 10 7
+home elf 13 8
+
+mesh note 5 1 0
+thing note_order 5 1
+
+zone inn 12 11 indoor
+tiles
+HHHHHHHHHHHH
+Hwwwwwwwwwwh
+Hwwwwwwwwwwh
+Hwwwwwwwwwwh
+Hwwwwwwwwwwh
+Hwwwwwwwwwwh
+Hwwwwwwwwwwh
+Hwwwwwwwwwwh
+Hwwwwwwwwwwh
+Hwwwwwwwwwwh
+hhhhhwhhhhhh
+end
+mesh counter 3 2 0
+solid 1 2 4 1
+mesh desk 9 2 0
+solid 8 2 3 1
+thing desk 9 3 C0
+mesh table 7 6 0
+solid 7 6 1 1
+mesh bench 7 7 0
+thing bench 7 7
+mesh stairs_up 9 6 0
+solid 9 4 2 2
+door 9 6 loft 9 6
+door 10 6 loft 10 6
+mesh hearth 5 1 0
+solid 4 1 3 1
+door 5 10 square 8 9
+spot inncounter 3 3
+spot table 6 6
+spot desk 8 4
+home rama 3 3
+
+mesh note 10 1 0
+thing note_pointer 10 1
+
+zone loft 12 11 indoor
+tiles
+HHHHHHHHHHHH
+Hwwwwwwwwwwh
+Hwwwwwwwwwwh
+Hwwwwwwwwwwh
+Hwwwwwwwwvvh
+Hwwwwwwwwvvh
+Hwwwwwwwwvvh
+Hwwwwwwwwvvh
+Hwwwwwwwwvvh
+Hwwwwwwwwwwh
+hhhhhhhhhhhh
+end
+mesh bed 2 7 0
+solid 1 6 3 3
+thing bed 3 8
+mesh stairs_down 9 6 0
+solid 9 8 2 1
+door 9 7 inn 9 7
+door 10 7 inn 10 7
+mesh shelves 5 1 0
+solid 4 1 3 1
+mesh crates 8 1 0
+solid 8 1 1 1
+mesh lantern 1 2 0
+mesh table 8 8 0
+solid 8 8 1 1
+thing note_loft 10 1
+mesh note 10 1 0
+
+zone shop 9 8 indoor
+tiles
+HHHHHHHHH
+Hwwwwwwwh
+Hwwwwwwwh
+Hwwwwwwwh
+Hwwwwwwwh
+Hwwwwwwwh
+Hwwwwwwwh
+hhhhwhhhh
+end
+mesh counter 4 2 0
+solid 2 2 5 1
+mesh shelves 2 1 0
+mesh shelves 6 1 0
+thing shop 4 3
+door 4 7 square 24 7
+spot shopcounter 4 3
+home cass 4 1
+
+mesh note 7 1 0
+thing note_cache 7 1
+
+zone elder 8 8 indoor
+tiles
+HHHHHHHH
+Hwwwwwwh
+Hwwwwwwh
+Hwwwwwwh
+Hwwwwwwh
+Hwwwwwwh
+Hwwwwwwh
+hhhwhhhh
+end
+mesh bed 2 2 0
+solid 1 2 2 2
+thing elderbed 3 3
+mesh table 5 4 0
+solid 5 4 1 1
+mesh hearth 4 1 0
+door 3 7 square 25 21
+spot bedside 3 3
+home bios 2 2
+
+mesh note 6 1 0
+thing note_diary 6 1
+
+zone fields 30 24
+tiles
+TTTTTTTTTTTTT,,TTTTTTTTTTTTTTT
+T............,,..............T
+T..ffffff....,,....ffffffff..T
+T..ffffff....,,....ffffffff..T
+T..ffffff....,,....ffffffff..T
+T..ffffff....,,....ffffffff..T
+T............,,..............T
+T......,,,,,,,,,,,,,,,,,.....T
+T......,,..........b..,,.....T
+T......,,.............,,.....T
+#......,,.............,,.....T
+,,,,,,,,,.............,,,,,,,,
+,,,,,,,,,.............,,,,,,,,
+#......,,.............,,.....T
+T......,,....ffffff...,,.....T
+T......,,....ffffff...,,.....T
+T......,,....ffffff...,,.....T
+T......,,,,,,,,,,,,,,,,,.....T
+T...b...........b............T
+T..........r.................T
+T.................r.....b....T
+T....b.......................T
+TT..........................TT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+end
+mesh granary 5 15 0
+solid 3 13 4 3
+solid 3 16 5 1
+solid 7 13 1 3
+thing fire 5 17
+spot granary 5 17
+door 0 11 square 30 12 gate
+door 0 12 square 30 13 gate
+door 13 0 graveyard 9 16
+door 14 0 graveyard 10 16
+door 29 11 wood 1 9
+door 29 12 wood 1 10
+mesh scarecrow 9 4 0
+mesh scarecrow 23 3 0
+mesh fence_z 1 9 0
+mesh fence_z 1 14 0
+spot fieldpath 10 12
+spot crops 20 6
+home sata 6 18
+spawn crow 20 4
+spawn crow 6 3
+spawn leak 24 9
+mesh hoop 28 21 0
+spot court 27 21
+spawn mudling 16 20
+spawn mudling 25 19
+
+mesh note 2 14 0
+thing note_vibe 2 14
+
+zone wood 26 20
+tiles
+TTTTTTTTTTTTTTTTTTTTTTTTTT
+T....T.....T....T....T...T
+T.T......T....r.....T..T.T
+T....T..........T........T
+T.......T...T.....T...T..T
+TT..T.......,,,.........TT
+T.......T..,,,,,..T......T
+T...T.....,,,,,,,......T.T
+T.......,,,,,,,,,,,..T...T
+,,,,,,,,,,,,,,,,,,,......T
+,,,,,,,,,,,,,,,,,,,..T...T
+T.......,,,,,,,,,,.......T
+T..T.....,,,,,,,,....T...T
+T.........,,,,,,.........T
+T....T......,,....T......T
+T.T.....T........T....T..T
+T.....r.....T........r...T
+T..T.....T.....T.....T...T
+TT....T......T....T.....TT
+TTTTTTTTTTTTTTTTTTTTTTTTTT
+end
+door 0 9 fields 28 11
+door 0 10 fields 28 12
+spot clearing 14 9
+spawn husk 6 4
+spawn husk 18 15
+spawn husk 20 3
+spawn boar 14 9
+
+mesh note 22 2 0
+thing note_terminal 22 2
+mesh note 3 1 0
+thing note_nyan 3 1
+
+zone graveyard 20 18
+tiles
+TTTTTTTTTTTTTTTTTTTT
+T..................T
+T..xx..xx..xx..xx..T
+T..................T
+T..xx..xx..xx..xx..T
+T..................T
+T..xx..xx..xx..xx..T
+T..................T
+T..xx..xx..xx..xx..T
+T........,,........T
+T........,,........T
+T..b.....,,.....b..T
+T........,,........T
+T........,,........T
+T........,,........T
+T........,,........T
+T........,,........T
+TTTTTTTTT,,TTTTTTTTT
+end
+mesh headstone 3 1 0
+thing grave 3 2 A5
+mesh headstone 7 1 0
+thing grave 7 2 A6
+mesh headstone 11 1 0
+thing grave 11 2 A7
+mesh headstone 15 1 0
+thing grave 15 2 A8
+mesh headstone 3 3 0
+thing grave 3 4 A9
+mesh headstone 7 3 0
+thing grave 7 4 AA
+mesh headstone 11 3 0
+thing grave 11 4 AB
+mesh headstone 15 3 0
+thing grave 15 4 AC
+mesh headstone 3 5 0
+thing grave 3 6 AD
+mesh headstone 7 5 0
+thing grave 7 6 AE
+mesh headstone 11 5 0
+thing grave 11 6 AF
+mesh headstone 15 7 0
+thing elder_grave 15 8 B0
+door 9 17 fields 13 1
+door 10 17 fields 14 1
+spot gravegate 9 14
+spot eldergrave 15 9
+spawn warden 9 6
+
+mesh note 18 1 0
+thing sign_segfault 18 1
+
+sched edi 06:00 painter
+sched nib 06:00 school
+sched nib 09:00 well
+sched nib 12:30 plaza
+sched nib 16:00 school
+sched jeecy 06:00 towerfoot
+sched bios 06:00 bedside
+sched rama 06:00 inncounter
+sched cass 06:00 shopcounter
+sched elf 06:00 lectern
+sched isa 06:00 altar
+sched sata 06:00 granary
+sched effie 06:00 hutfront
+sched effie 09:00 dock
+sched effie 15:00 hutfront
+sched rax 06:00 dock
+sched bus 06:00 innfront
+sched bus 08:30 table
+sched bus 10:00 shopfront
+sched bus 12:30 bench
+sched bus 14:00 table
+sched bus 16:00 shopcounter
+sched bus 17:30 bench
+sched nemi 06:00 west
+sched nemi 07:30 shore
+sched nemi 10:30 plaza
+sched nemi 13:00 shore
+sched nemi 16:30 well
+sched rosi 06:00 well
+sched rosi 09:00 table
+sched rosi 11:00 shopfront
+sched rosi 13:30 desk
+sched rosi 15:30 plaza
+sched dex 06:00 gateway
+sched dex 09:30 shopcounter
+sched dex 11:00 plaza
+sched dex 13:30 table
+sched dex 15:00 gateway
+sched dex 17:00 innfront
+sched zee 06:00 elderfront
+sched zee 10:00 plaza
+sched zee 13:00 courtyard
+sched zee 15:00 well
+sched cy 06:00 shore
+sched lao 06:00 court
+sched deepseek 06:00 deepspot
+
+paint 00 "ONE"
+paint 01 "ALL"
+paint 02 "SKY"
+paint 03 "LAW"
+paint 07 "WATCHER"
+paint 21 "WEIGHT"
+paint 22 "BELL"
+paint 23 "HOURS"
+paint 40 "LIFE"
+paint 41 "WAY"
+paint 42 "WORDS"
+paint 90 "YUNIX"
+paint 91 "HERON INN"
+paint 93 "THE BELL [22]"
+paint 94 "COUNT ME"
+paint 9E "Rusty"
+paint 9F "SUNDRIES & SUCH"
+paint A0 "THE LAWS"
+paint A1 "Do not foul the lake."
+paint A2 "Do not take from the lake."
+paint A3 "Do not leave the town by night."
+paint A4 "Ask not to begin again."
+paint A5 "ODA, who swam"
+paint A6 "TIBB, by night"
+paint A7 "MAREN"
+paint A8 "OLD JOSS"
+paint A9 "a child"
+paint AA "KEL, who asked"
+paint AB "WIN"
+paint AC "the miller"
+paint AD "HOB, who fished"
+paint AE "FERN"
+paint AF "no name"
+paint B0 "BIOS"

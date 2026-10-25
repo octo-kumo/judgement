@@ -1,0 +1,394 @@
+col grass 6fa557
+col stone 9a9488
+col darkstone 6f6a62
+col plaster d8c8a8
+col plaster2 e3d6bc
+col plaster3 cfc0a0
+col roof b0553a
+col roof2 7f4f6a
+col roof3 4f6f8a
+col thatch c9a45a
+col wood 7a5232
+col darkwood 5a3a22
+col lightwood a07a4a
+col leaf 4f8a45
+col leaf2 3f7a3a
+col leaf3 6a9a48
+col bush 4a7d3e
+col rock 8a857c
+col lamp ffd27a glow
+col window ffe0a0 glow
+col glass 6e8fa8
+col red a8302a
+col vermilion c8442c
+col black 2a2622
+col iron 50504c
+col straw d9b45a
+col cloth 7a6ab0
+col water 3f7fb5
+col bed e8e0d0
+col blanket 8a3a3a
+col ember ff7a2a glow
+col ghost dfe8ff glow
+col gold e8c060
+col white f4f0e8
+col bone e8e0cc
+col hand f0e8ff glow
+col handshadow b8b0d8
+
+mesh tree
+cyl darkwood 0 0 2 0 9 5
+cone leaf 0 0 9 7 22 7
+cone leaf2 0 0 7 16 30 7
+end
+
+mesh tree2
+cyl darkwood 0 0 2 0 10 5
+cyl leaf3 0 0 8 9 20 6
+cyl leaf 0 0 6 20 25 6
+end
+
+mesh bush
+cyl bush 0 0 6 0 6 6
+end
+
+mesh rock
+cyl rock 0 0 6 0 5 5
+end
+
+mesh crop
+box leaf3 -5 0 -5 -3 5 -3
+box leaf3 3 0 -5 5 6 -3
+box gold -5 0 3 -3 4 5
+box leaf3 3 0 3 5 5 5
+end
+
+mesh tower
+box stone -12 0 -12 12 52 12
+box darkstone -14 0 -14 14 4 14
+box wood -14 52 -14 14 54 14
+box darkwood -12 54 -12 -10 70 -10
+box darkwood 10 54 -12 12 70 -10
+box darkwood -12 54 10 -10 70 12
+box darkwood 10 54 10 12 70 12
+cyl iron 0 0 5 58 66 8
+roof roof -16 70 -16 16 84 16 0
+box darkwood -4 0 12 4 14 13
+box lightwood -4 22 12 4 30 13
+end
+
+mesh inn
+box plaster -28 0 -36 28 24 36
+box plaster2 -28 24 -36 28 42 36
+box darkwood -30 22 -38 30 25 38
+roof roof2 -32 42 -40 32 64 40 1
+box wood -5 0 36 5 16 37
+box window -20 28 36 -12 36 37
+box window 12 28 36 20 36 37
+box window -20 8 36 -12 15 37
+box window 12 8 36 20 15 37
+box window 28 30 -20 29 37 -10
+box window 28 30 10 29 37 20
+cyl darkstone 18 -24 4 50 72 6
+end
+
+mesh shop
+box plaster3 -36 0 -20 36 26 20
+roof roof3 -40 26 -24 40 44 24 0
+box wood -5 0 20 5 16 21
+box window -26 7 20 -14 16 21
+box window 14 7 20 26 16 21
+box red -30 18 20 30 22 26
+end
+
+mesh stall
+box lightwood -14 0 -6 14 10 6
+box darkwood -14 0 -6 -12 26 -4
+box darkwood 12 0 -6 14 26 -4
+box darkwood -14 0 4 -12 22 6
+box darkwood 12 0 4 14 22 6
+roof vermilion -16 22 -8 16 30 8 0
+box cloth -10 10 -2 -4 13 2
+box gold 2 10 -2 8 12 2
+end
+
+mesh stele
+box darkstone -9 0 -6 9 4 6
+box stone -6 4 -3 6 38 3
+box stone -7 38 -4 7 41 4
+end
+
+mesh well
+cyl stone 0 0 8 0 8 8
+cyl water 0 0 6 6 7 8
+box darkwood -8 8 -1 -6 22 1
+box darkwood 6 8 -1 8 22 1
+roof roof -10 22 -6 10 28 6 0
+end
+
+mesh elder_house
+box plaster -38 0 -16 38 22 16
+roof thatch -42 22 -20 42 42 20 0
+box wood -5 0 16 5 15 17
+box window -26 6 16 -16 14 17
+box window 18 6 16 26 14 17
+cyl darkstone 26 -6 4 30 48 6
+end
+
+mesh school
+box plaster2 -36 0 -28 36 26 28
+roof roof -40 26 -32 40 46 32 1
+box wood -5 0 28 5 16 29
+box white -30 6 28 -10 20 29
+box window 12 8 28 26 18 29
+cyl darkwood 0 -20 2 46 60 4
+cyl gold 0 -20 4 56 62 6
+end
+
+mesh lamppost
+cyl iron 0 0 1 0 26 4
+box iron -3 26 -3 3 28 3
+box lamp -2 28 -2 2 33 2
+box iron -3 33 -3 3 35 3
+end
+
+mesh lantern
+cyl darkstone 0 0 4 0 4 4
+box stone -2 4 -2 2 14 2
+box lamp -4 14 -4 4 20 4
+roof darkstone -6 20 -6 6 26 6 0
+end
+
+mesh bench
+box lightwood -12 5 -3 12 7 3
+box darkwood -11 0 -2 -9 5 2
+box darkwood 9 0 -2 11 5 2
+end
+
+mesh hoop
+box darkwood -2 0 -2 2 40 2
+box white -14 36 -3 14 52 -1
+box red -3 38 -1 3 40 3
+box red -8 38 -1 -2 39 1
+end
+
+mesh stairs_up
+box wood -8 0 32 24 2 40
+box wood -8 0 24 24 4 32
+box wood -8 0 16 24 6 24
+box wood -8 0 8 24 8 16
+box wood -8 0 0 24 10 8
+box wood -8 0 -8 24 12 0
+box wood -8 0 -16 24 14 -8
+box wood -8 0 -24 24 16 -16
+box wood -8 0 -32 24 18 -24
+box wood -8 0 -40 24 20 -32
+box darkwood -8 0 -40 -7 24 40
+box darkwood -8 20 -41 24 24 -40
+end
+
+mesh stairs_down
+box darkstone -9 -26 -40 -8 0 41
+box darkstone -9 -26 -41 24 0 -40
+box wood -8 -26 -40 24 -2 -32
+box wood -8 -26 -32 24 -4 -24
+box wood -8 -26 -24 24 -6 -16
+box wood -8 -26 -16 24 -8 -8
+box wood -8 -26 -8 24 -10 0
+box wood -8 -26 0 24 -12 8
+box wood -8 -26 8 24 -14 16
+box wood -8 -26 16 24 -16 24
+box wood -8 -26 24 24 -18 32
+box wood -8 -26 32 24 -20 40
+end
+
+mesh barrel
+cyl wood 0 0 5 0 12 8
+cyl iron 0 0 5 5 7 8
+end
+
+mesh crates
+box lightwood -7 0 -7 3 10 3
+box wood -2 0 0 8 8 8
+box lightwood -5 10 -5 1 16 1
+end
+
+mesh fence_x
+box wood -8 0 -1 -6 9 1
+box wood 6 0 -1 8 9 1
+box lightwood -8 5 -1 8 7 1
+box lightwood -8 2 -1 8 3 1
+end
+
+mesh fence_z
+box wood -1 0 -8 1 9 -6
+box wood -1 0 6 1 9 8
+box lightwood -1 5 -8 1 7 8
+box lightwood -1 2 -8 1 3 8
+end
+
+mesh gate
+box stone -6 0 -34 6 40 -26
+box stone -6 0 10 6 40 18
+box darkwood -7 36 -35 7 42 19
+box wood -4 0 -26 -2 30 -14
+box wood -4 0 -2 -2 30 10
+end
+
+mesh post
+cyl darkwood 0 0 2 0 12 5
+end
+
+mesh hut
+box wood -20 0 -14 20 18 14
+roof thatch -24 18 -18 24 34 18 0
+box darkwood -4 0 14 4 13 15
+box window 10 6 14 16 12 15
+end
+
+mesh boat
+v -14 -2 -4
+v 14 -2 -4
+v 14 -2 4
+v -14 -2 4
+v -20 5 -7
+v 20 5 -7
+v 20 5 7
+v -20 5 7
+f wood 3 2 6 7
+f wood 1 0 4 5
+f wood 2 1 5 6
+f wood 0 3 7 4
+f darkwood 4 7 6 5
+box lightwood -2 5 -6 2 6 6
+end
+
+mesh shrine
+box darkstone -42 0 -26 42 6 26
+box vermilion -34 6 -20 34 30 20
+box darkwood -36 6 -22 -32 30 -18
+box darkwood 32 6 -22 36 30 -18
+box darkwood -36 6 18 -32 30 22
+box darkwood 32 6 18 36 30 22
+roof black -44 30 -30 44 46 30 0
+box vermilion -26 46 -14 26 56 14
+roof black -32 56 -18 32 70 18 0
+box gold -8 10 20 8 26 21
+end
+
+mesh torii
+box vermilion -26 0 -2 -22 44 2
+box vermilion 22 0 -2 26 44 2
+box vermilion -30 36 -3 30 40 3
+box black -34 44 -4 34 48 4
+box black -30 0 -3 -20 3 3
+box black 20 0 -3 30 3 3
+box vermilion -26 -1 -18 -22 44 -14
+box vermilion 22 -1 -18 26 44 -14
+box black -34 44 -20 34 48 -16
+end
+
+mesh lectern
+box darkwood -2 0 -2 2 12 2
+box wood -6 12 -5 6 14 5
+box white -5 14 -4 5 15 4
+end
+
+mesh effigies
+cyl straw -4 -2 3 0 18 5
+cyl straw 4 -2 3 0 18 5
+cyl straw 0 4 3 0 18 5
+cyl straw -3 3 3 0 16 5
+box straw -8 10 -4 8 12 -1
+end
+
+mesh counter
+box darkwood -26 0 -6 26 14 6
+box lightwood -27 14 -7 27 16 7
+end
+
+mesh desk
+box wood -14 0 -6 14 12 6
+box white -6 12 -3 4 13 3
+box darkwood -10 12 -4 -8 16 -2
+end
+
+mesh table
+cyl wood 0 0 7 10 12 8
+cyl darkwood 0 0 2 0 10 4
+end
+
+mesh bed
+box darkwood -14 0 -22 14 6 22
+box bed -13 6 -21 13 9 21
+box blanket -13 7 -6 13 10 21
+box white -10 9 -20 10 11 -14
+box darkwood -14 0 -24 14 16 -22
+end
+
+mesh hearth
+box darkstone -16 0 -8 16 22 8
+box black -8 0 6 8 12 9
+box ember -6 0 7 6 5 9
+cyl darkstone 0 0 6 22 50 6
+end
+
+mesh shelves
+box darkwood -12 0 -4 12 30 4
+box lightwood -11 10 -3 11 11 5
+box lightwood -11 20 -3 11 21 5
+box red -9 11 -2 -5 17 2
+box glass -2 11 -2 2 16 2
+box gold 4 21 -2 9 25 2
+end
+
+mesh granary
+box wood -30 0 -26 30 34 26
+roof thatch -34 34 -30 34 56 30 1
+box darkwood -8 0 26 8 20 27
+box lightwood -30 30 -26 30 33 26
+end
+
+mesh scarecrow
+box darkwood -1 0 -1 1 22 1
+box darkwood -10 16 -1 10 18 1
+box straw -4 18 -3 4 26 3
+cyl cloth 0 0 6 24 28 6
+end
+
+mesh headstone
+box stone -6 0 -2 6 12 2
+box stone -4 12 -2 4 14 2
+end
+
+mesh hand
+box hand -24 0 -18 24 12 18
+box hand -22 4 18 -14 9 46
+box hand -9 4 18 -1 9 52
+box hand 4 4 18 12 9 50
+box hand 17 4 18 23 9 42
+box hand -36 3 -14 -24 8 6
+box handshadow -26 -2 -16 26 0 16
+end
+
+mesh effigy_one
+cyl straw 0 0 3 0 14 5
+box straw -6 9 -1 6 11 1
+cyl straw 0 0 3 14 18 5
+end
+
+mesh bucket
+cyl wood 0 0 3 0 5 6
+cyl water 0 0 2 4 5 6
+end
+
+mesh signpost
+cyl darkwood 0 0 1 0 14 4
+box lightwood -7 9 -1 7 16 1
+box white -6 10 1 6 15 2
+end
+
+mesh note
+cyl darkwood 0 0 1 0 8 4
+box white -3 6 0 3 11 1
+end

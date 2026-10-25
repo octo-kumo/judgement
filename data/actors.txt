@@ -1,0 +1,277 @@
+key h f3d2b0
+key H e0b890
+key d b98a62
+key D 8a5a3a
+key T 6a4a2a
+key B 2a2018
+key w f4efe6
+key g 9a9a9a
+key G 6a6a70
+key y e8c45a
+key r c0443a
+key O d07030
+key c 3f6aa8
+key C 2c4f86
+key b 5a8ad0
+key o 4f7a4a
+key X 2a6a2a
+key x 40a040
+key n 4a4a52
+key N 6a6a70
+key u 7a5ab0
+key p d07a9a
+key R 8a2a22
+key e ff4030
+key s d9b45a
+key t 8a6a3a
+key M 5a4028
+key m 7a5a3a
+key l 3a3a48
+key a e8e0c8
+key v dfe8ff
+key V a8b8e0
+key f ff9a40
+key E ffd040
+key k 2a2a30
+key z 1a1a1e
+key W 4d6bfe
+key q ffb0c8
+key Q e8588a
+key Y 8a6a3a
+
+actor wren     h T c e l
+actor elder    H w N a t bald beard stoop staff cloak
+actor fisher   D B o y T beard band
+actor widow    h B n p l long cloak
+actor keeper   h g a b l hood cloak
+actor clerk    h g M s l
+actor painter  H r y e l cap apron
+actor shopkeep d B s a l bun apron
+actor innkeep  H O R a l bun apron cloak
+actor ringer   h g n E l cap
+actor child    h f f w l child cap
+actor farmer   D y X t T straw apron
+actor bus      h B c y l
+actor dex      h T x w l child
+actor nemi     H B u V l long
+actor rosi     h T p a l bun apron
+actor zee      d B a n l long
+actor cy       h r o t T beard
+actor lao      D B E u u
+actor deepseek h W W w l child hood
+
+sprite mudling 8 6
+..mmmm..
+.mmmmmm.
+mmEmmEmm
+mmmmmmmm
+mMmmmmMm
+.MM..MM.
+frame
+........
+..mmmm..
+.mmmmmm.
+mmEmmEmm
+mmmmmmmm
+MMMMMMMM
+end
+
+sprite crow 9 7
+....kkk..
+...kkkEff
+..kkkkkf.
+.kkkkkkk.
+kkkkkkk..
+.zzkkk...
+...f.f...
+frame
+.k..kkk..
+.kk.kkEff
+..kkkkkf.
+..kkkkkk.
+...kkkk..
+....kk...
+...f.f...
+end
+
+sprite husk 8 11
+..x..x..
+.xXxxXx.
+..xxxx..
+..eXXe..
+..xXXx..
+.xxxxxx.
+x.xXXx.x
+..xXXx..
+..TTTT..
+..T..T..
+.TT..TT.
+frame
+..x..x..
+.xXxxXx.
+..xxxx..
+..eXXe..
+..xXXx..
+.xxxxxx.
+x.xXXx.x
+..xXXx..
+..TTTT..
+.TT..T..
+.T..TT..
+end
+
+sprite boar 14 9
+..g.g.g..gg...
+.ggGgGgggGGGg.
+gGGGGGGGGGGGGg
+GGGGGGGGGGGeGG
+GGGGGGGGGGGGGp
+gGGGGGGGGGGGgw
+.gGGGGGGGGGg.w
+..kk.kk..kk.kk
+..k..k....k..k
+frame
+..g.g.g..gg...
+.ggGgGgggGGGg.
+gGGGGGGGGGGGGg
+GGGGGGGGGGGeGG
+GGGGGGGGGGGGGp
+gGGGGGGGGGGGgw
+.gGGGGGGGGGg.w
+...kk.kk.kk.k.
+...k..k...k..k
+end
+
+sprite warden 12 16
+.k........k.
+.kk......kk.
+..kk.kk.kk..
+...kkXXkk...
+..kXXXXXXk..
+..kXeXXeXk..
+..kXXXXXXk..
+...kXXXXk...
+..kXXXXXXk..
+.kXXXkkXXXk.
+kXXXkXXkXXXk
+kXXkXXXXkXXk
+.kk.XXXX.kk.
+....XXXX....
+...kk..kk...
+...kk..kk...
+frame
+.k........k.
+.kk......kk.
+..kk.kk.kk..
+...kkXXkk...
+..kXXXXXXk..
+..kXEXXEXk..
+..kXXXXXXk..
+...kXXXXk...
+..kXXXXXXk..
+.kXXXkkXXXk.
+kXXXkXXkXXXk
+kXXkXXXXkXXk
+.kk.XXXX.kk.
+....XXXX....
+..kk....kk..
+..kk....kk..
+end
+
+sprite leak 10 12
+...nnnn...
+..nNNNNn..
+..nNEENn..
+..nNNNNn..
+...nNNn...
+..nNNNNn..
+.nNNgNNNn.
+nNNnNNnNNn
+nN.nNNn.Nn
+.n.nNNn.n.
+...n..n...
+...v..v...
+frame
+...nnnn...
+..nNNNNn..
+..nNEENn..
+..nNNNNn..
+...nNNn...
+..nNNNNn..
+.nNNNgNNn.
+nNNnNNnNNn
+nN.nNNn.Nn
+.n.nNNn.n.
+...n..n...
+..v....v..
+end
+
+sprite ghost 8 12 o:V
+..vvvv..
+.vvvvvv.
+.vkvvkv.
+.vvvvvv.
+.vvkkvv.
+..vvvv..
+.vvvvvv.
+vvvvvvvv
+vvvvvvvv
+vvvvvvvv
+vv.vv.vv
+v..v..v.
+frame
+..vvvv..
+.vvvvvv.
+.vkvvkv.
+.vvvvvv.
+.vvkkvv.
+..vvvv..
+.vvvvvv.
+vvvvvvvv
+vvvvvvvv
+vvvvvvvv
+.vv.vv.v
+.v..v..v
+end
+
+sprite effigy 7 11
+..sss..
+..sts..
+..sss..
+.sssss.
+sssssss
+..sss..
+..sss..
+..sts..
+..s.s..
+..s.s..
+..s.s..
+end
+
+sprite nyan 14 7
+..YYYYYYYY.g.g
+..YqqqqqqY.ggg
+..YqQqqQqYgggg
+..YqqQqqqYgkgk
+..YqqqqQqYgggg
+..YYYYYYYY.gg.
+...k.k..k.k...
+frame
+..YYYYYYYY.g.g
+..YqqqqqqY.ggg
+..YqQqqQqYgggg
+..YqqQqqqYgkgk
+..YqqqqQqYgggg
+..YYYYYYYY.gg.
+..k.k..k.k....
+end
+
+sprite marker 7 7
+...e...
+..kkk..
+.kGGGk.
+kGGGGGk
+kGnGGGk
+.kGGGk.
+sssksss
+end

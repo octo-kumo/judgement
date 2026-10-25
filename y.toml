@@ -1,0 +1,13 @@
+[package]
+name = "judgement"
+src = ["src/eng", "src/game"]
+subsystem = "gui"
+
+[bin]
+judgement = "src/main.y"
+
+[web]
+title = "Heavenly Rules"
+start = "click"
+canvas = "fit"
+zoom = "2"

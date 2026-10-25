@@ -1,0 +1,6 @@
+[package]
+name = "pack"
+src = ["../../src/eng"]
+
+[bin]
+pack = "pack.y"

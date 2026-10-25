@@ -1,0 +1,1050 @@
+@wake ?handless
+Peecy: I'm here.
+
+@wake ?loop=1 ?retries>0
+Peecy: I am back... again?
+
+@wake ?loop=1
+Peecy: I am back?
+
+@wake ?loop=2
+Peecy: I am back ... the bell.
+
+@wake ?loop>=3
+Peecy: ... again.
+
+@void.line ?voids>=3
+Peecy: I want to start over...
+Peecy: No one is listening. Maybe someone could have.
+
+@void.line
+Peecy: I want to start over...
+
+@void.menu
+> Keep walking. -> void.stay
+> Let go of everything. -> void.letgo
+
+@void.stay
+
+@void.letgo !event let_go
+
+@lake ?w.bucket
+Peecy: The bucket is already full.
+
+@lake
+> Fill the bucket. -> lake.water
+> Drop a stone in. -> lake.stone
+> Leave it be.
+
+@lake.water !event take_water !set w.bucket
+Peecy: Cold. Heavier than it looks.
+
+@lake.stone !event foul_lake
+Peecy: It sinks without a sound.
+
+@bios ?w.elder_dead
+Peecy: The bed is empty. It still smells of him.
+
+@bios ?handless
+Elder Bios: No bell this eve, they say. Fain would I see that once, ere I rest.
+
+@bios ?loop>=2 ?elder_half ?!rite
+Elder Bios: The vessel first... then thee. Ask it of Isa. I am o'erweary.
+
+@bios ?loop>=2
+Elder Bios: Thou hast the look of one who hath lived this day afore.
+> Lived what before? -> bios.what
+> Rest, Elder.
+
+@bios.what
+Elder Bios: The selfsame morn. Some few of us do. We speak it not.
+Elder Bios: I writ the Hand upon a leaf once, and never aimed it. The bell took me all the same.
+Elder Bios: What the laws end in is written in the Book, child. The last page.
+
+@bios !set elder_half
+Elder Bios: Ah. Peecy. Draw nigh; mine ears do fail me.
+Elder Bios: When thy turn cometh... the vessel first. Then thee.
+> Then me what? -> bios.then
+> I'll let you sleep.
+
+@bios.then
+Elder Bios: ...the vessel first. Then thee. Isa knoweth the rest.
+
+@thing.elderbed ?w.elder_dead
+The blankets are folded. Someone has already been in to tidy.
+
+@thing.elderbed
+Elder Bios breathes slowly. Better not to wake him.
+
+@rax ?handless
+Rax: Bell rang an' naught came, matey. Me hands don't know what to do with 'emselves.
+
+@rax ?loop>=2 ?day=1 ?time<8:00
+Rax: Ahoy. Tidyin' the boat, I am. Bottle's empty, so over she goes.
+> Don't throw it in the lake. -> rax.warn
+> Morning, Rax.
+
+@rax ?loop>=2 ?day=1 ?time<12:00 ?!w.bram_gone
+Rax: Bottle went over the side, she did. Lake never complained yet, savvy?
+> The bell will. -> rax.warn
+> Morning, Rax.
+
+@rax.warn
+Rax: Who's to see? The lake keeps no logbook, savvy? 'Tis one bottle.
+Peecy: He doesn't believe me. He never does.
+
+@rax
+Rax: The lake gives, says I. Ye just don't give it back. That be the whole o' the law.
+> And if you did? -> rax.if
+> See you, Rax.
+
+@rax.if
+Rax: Then ye'd hear the bell a mite closer. Off with ye, I've nets to mend.
+
+@effie ?handless ?time>=17:00
+Effie: Watch this.
+Effie: {i}She throws a bottle into the lake, as hard as she can, and laughs.{/}
+Effie: Nothing! Status: nothing! Did you see?
+
+@effie ?handless
+Effie: Status: Rax is drinking on the dock, and nobody's counting his bottles. Nobody has to.
+
+@effie ?w.bram_gone
+Effie: He fed the lake his bottle. That's all. That's all he did.
+> I'm sorry. -> effie.sorry
+> Did anyone try to stop it? -> effie.stop
+
+@effie.sorry
+Effie: Don't be. Status: weather. You don't apologise for weather.
+
+@effie.stop ?rite
+Effie: Zee offered him a vessel. He laughed. Said straw was for scarecrows.
+
+@effie.stop
+Effie: Stop the bell? Might as well clear the rain.
+
+@effie
+Effie: Status: Rax is on the dock again. Says he's mending. He's drinking.
+
+@isa ?w.bram_gone ?!handless ?!w.asked_isa !set w.asked_isa
+Isa: assert(rax.broke(law.1)); // the bell called his number.
+Isa: let offered = vessel.offer(rax); // he laughed. straw was for scarecrows.
+
+@isa ?handless
+Isa: let effigies = gate.stack(); // still stacked. I keep forgetting to burn them.
+Isa: let needed = false; // strange, to say that aloud.
+
+@isa ?rite
+Isa: def rite() {{ out(); vessel.set_down(far_side); back(); }; // in that order.
+> Run it again, slowly. -> isa.teach
+> What if I come back early? -> isa.early
+> Thank you, Isa.
+
+@isa ?elder_half ?loop=1
+Isa: if (bios.said("the vessel first, then you")) {{ ready = true; }; // he is ready to go.
+> Teach me the rest. -> isa.notyet
+> Not now.
+
+@isa.notyet
+Isa: if (!you.heard(bell)) {{ return; }; // the rest is for one the bell has found. not you. not yet.
+
+@isa ?elder_half
+Isa: if (bios.said("the vessel first, then you")) {{ ready = true; }; // he is ready to go.
+> Teach me the rest. -> isa.teach
+> Not now.
+
+@isa
+Isa: if (you.keep(laws)) {{ bell.pass(you); }; // mind the laws, little one.
+> And if I don't? -> isa.dont
+> I will.
+
+@isa.dont
+Isa: else {{ need(vessel); need(someone_who_remembers); };
+
+@isa.teach !set rite
+Isa: // when you have broken a law, come here before the bell.
+Isa: let v = effigies.take(); step_into(gate.passage); // up there, the heavens read no name.
+Isa: v.set_down(far_side); {gold}// the vessel enters before you return.{/}
+Isa: step_out(); // not before. never before.
+> Why does the order matter? -> isa.why
+> I understand.
+
+@isa.why
+Isa: // my mother did not know. her mother did not know.
+Isa: assert(it_works);
+
+@isa.early
+Isa: if (early) {{ vessel = straw; bell.find(you); };
+
+@elf ?w.bram_gone ?!handless ?!w.asked_elf !set w.asked_elf
+Elf: Entry: Rax. Address: his number at the bell.
+Elf: Status: unresolved. The Book still lists him, and he does not answer.
+
+@elf ?handless
+Elf: Entry: everyone. Address: as before. Reader: none, now. I keep the Book anyway.
+
+@elf ?w.lost_child ?!book_lent !event lend_book !set book_lent
+Elf: Rosi's boy? Look him up yourself. Name, then number.
+Elf: Press {gold}B{/} to open it. Return it... whenever. Same morning anyway.
+
+@elf ?elder_half ?!book_lent !event lend_book !set book_lent
+Elf: You want the Book? Take it. You look things up more than I do lately.
+Elf: Press {gold}B{/} to open it. Return it... whenever. Same morning anyway.
+
+@elf ?w.lost_child ?!w.lost_done
+Elf: Looking someone up? Name, then number. Every soul in Yunix, one line each.
+Elf: If the name resolves, the heavens still hold them.
+
+@elf ?realloc
+Elf: Names shift when folk come and go. Through a door, out again: a new number.
+Elf: Nobody minds. A number is not a person. It only points at one.
+
+@elf
+Elf: The Book of Names. Every soul in Yunix is defined in it.
+Elf: The heavens look it up every evening. Better resolved than missing.
+> What are the runes beside each name? -> elf.runes
+> Goodbye, Elf.
+
+@elf.runes
+Elf: Addresses. Numbers. Count the apples on the school wall to read them.
+
+@edi ?w.bram_gone ?!handless ?!w.asked_edi !set w.asked_edi
+Edi: Rax! His boat's still tied up. I ought to paint its name over, someone should.
+Edi: Names stay on boards a long while after the folk are gone.
+
+@edi ?handless
+Edi: Everyone wants new signs! Bigger letters, brighter paint. Like they mean to stay.
+
+@edi
+Edi: Edi's brush! A coin a letter. Any board, any name -- I'll write right over it.
+> Rename my blade. -> edi.blade
+> Repaint a board. -> edi.boards
+> What's under old paint? -> edi.under
+> Just looking.
+
+@edi.blade
+Edi: Your blade's name is a little board of its own. Write long and it runs on.
+> Paint a new name. -> edi.do9E
+> Never mind.
+
+@edi.boards ?loop>=2
+Edi: The shop's, the inn's, the stele -- yes, even the laws, if you pay.
+Edi: Whatever you write at the end, the heavens read.
+-> edi.pick
+
+@edi.boards
+Edi: The shop's, the inn's, the welcome sign. The stele I don't touch. Usually.
+-> edi.pick
+
+@edi.pick
+> The shop's sign. -> edi.do9F
+> The inn's sign. -> edi.do91
+> The welcome sign. -> edi.do90
+> The bell's plaque. -> edi.do93
+> The school wall. -> edi.do94
+> A law. -> edi.laws ?loop>=2
+> My name. -> edi.do60 ?loop>=2
+> Never mind.
+
+@edi.laws
+Edi: Which one? Mind, they are carved deeper than they look.
+> The first. -> edi.doA1
+> The second. -> edi.doA2
+> The third. -> edi.doA3
+> The fourth. -> edi.doA4
+> Never mind.
+
+@edi.do9E !event paint_9E
+@edi.do9F !event paint_9F
+@edi.do91 !event paint_91
+@edi.do90 !event paint_90
+@edi.do93 !event paint_93
+@edi.do94 !event paint_94
+@edi.do60 !event paint_60
+@edi.doA1 !event paint_A1
+@edi.doA2 !event paint_A2
+@edi.doA3 !event paint_A3
+@edi.doA4 !event paint_A4
+
+@edi.under ?w.elder_dead
+Edi: Scrape it and you'll see what was there. Paint never really leaves.
+Edi: Old Bios had a scraper. Took it to his grave, I'd guess.
+
+@edi.under
+Edi: Scrape it and you'll see what was there. Paint never really leaves.
+Edi: Old Bios keeps a scraper by his bed. Won't lend it! Says it's for after.
+
+@cass ?w.bram_gone ?!handless ?!w.asked_cass !set w.asked_cass
+Cass: Rax? Knew he'd go. Nobody listens when you say mind the lake.
+Cass: Bread's still two coins. Folk eat, even so.
+
+@cass ?w.blade_renamed ?!overflow !set overflow
+Cass: Your blade's name ran onto my board! Half your sword, half my shop!
+Cass: Edi's brush, I bet. Words run past their edges if you let them.
+
+@cass ?handless
+Cass: Sold out of effigies. Ha! Never sold one in my life. Had them ready, though.
+
+@cass
+Cass: Knew you'd come. Bread's two coins, already wrapped. Mends what ails you.
+> Buy bread (2). -> cass.bread ?coins>=2
+> Just browsing.
+
+@cass.bread !coins -2 !hp 10 !sfx pickup
+Cass: Still warm. Don't tell Rama I said it's better than hers.
+
+@thing.shop
+-> cass
+
+@rama ?w.bram_gone ?!handless ?!w.asked_rama !set w.asked_rama
+Rama: Rax? Oh, love. The bell takes someone most evenings.
+Rama: I'll set a bowl aside anyway. I always do.
+
+@rama ?w.elder_dead ?!w.elder_told !set w.elder_told
+-> beat.elder_gone
+
+@rama ?handless
+Rama: First night I've not counted heads at the bell. I counted them anyway.
+
+@rama ?letter_hint
+Rama: That letter of yours. It looks like what Bios used to mutter.
+-> rama.menu
+
+@rama ?code:C0 !set letter_hint
+Rama: Is that your letter on the desk? All runes. Like the Elder's prayers.
+-> rama.menu
+
+@rama ?struck_once
+Rama: Have we met? Sorry, love, I forget everyone by morning. You look like you slept badly.
+-> rama.menu
+
+@rama
+Rama: Morning, love. Have we met? Never mind -- the bed upstairs is yours.
+Rama: The desk is free too, if you've letters to write.
+-> rama.menu
+
+@rama.menu ?w.stuck
+> What should I do today? -> rama.todo
+> Where is everyone? -> rama.where
+> How do I get around? -> rama.keys
+> Thanks, Rama.
+
+@rama.menu
+Rama: Go and look about first, love. If you're still lost by and by, ask me again.
+> Where is everyone? -> rama.where
+> How do I get around? -> rama.keys
+> Thanks, Rama.
+
+@rama.todo ?loop>=2 ?link:A4=C0 ?code:C0
+Rama: Everything is set. Strike what strikes, then wait. I'll keep your bed.
+
+@rama.todo ?loop>=2 ?code:C0
+Rama: Edi again, love. Mind what is written last on the fourth law.
+
+@rama.todo ?loop>=2 ?hand_read
+Rama: Use the desk by the door. Write down what the Book showed you.
+
+@rama.todo ?loop>=2 ?found13
+Rama: The seal, love. Press K and name what the laws all point at.
+
+@rama.todo ?loop>=2 ?saw13
+Rama: The Book has a page for those who act. It's the last one.
+
+@rama.todo ?loop>=2 ?leak
+Rama: Scrape the stele in the square, and read what stays under the laws.
+
+@rama.todo ?!rhyme
+Rama: Go and see the schoolhouse wall, love. Nib will count it out for you.
+
+@rama.todo ?!rules_seen
+Rama: Read the stele in the square. Four laws, and everyone keeps them.
+
+@rama.todo ?!elder_half ?loop=1
+Rama: Look in on Bios, in the little house past the square. He'd like the company.
+
+@rama.todo ?!book_lent
+Rama: Elf keeps the Book of Names at the shrine. Ask, and you may borrow it.
+
+@rama.todo ?loop=1
+Rama: Live the day, love. Help where you're needed, and mind the laws. The bell is at six.
+
+@rama.todo ?!rite
+Rama: Isa at the shrine knows what to do when a law is broken. Ask about the Elder's words.
+
+@rama.todo ?!realloc
+Rama: Open the Book and watch a name while its owner walks through a door.
+
+@rama.todo ?!overflow
+Rama: Edi paints any board for a coin a letter. Cass minds her sign, mind.
+
+@rama.todo ?!leak
+Rama: Bios kept a scraper. Old paint never leaves a board, they say.
+
+@rama.todo
+Rama: Scrape the stele in the square, and read what stays under the laws.
+
+@rama.where
+Rama: Edi's at the square with his brush, and Cass keeps the shop. Elf and Isa are up at the shrine.
+Rama: Nib's about the school, Sata's in the fields, and Rax is on the dock by day.
+
+@rama.keys
+Rama: Arrows or WASD to walk, E to talk. Space swings your blade, J is Judgment.
+Rama: Press H whenever you're lost. It shows everything.
+
+@thing.desk
+The writing desk. Ink, a pen, one sheet of paper. {dim}(The letter waits for its own pen.){/}
+
+@jeecy ?w.bram_gone ?!handless ?!w.asked_jeecy !set w.asked_jeecy
+Jeecy: I rang it. Same as ever. I don't choose who.
+Jeecy: Whatever the stele no longer holds, the bell sweeps.
+
+@jeecy ?handless
+Jeecy: I rang it. Same as ever. Nothing was swept. I rang it twice to be sure.
+
+@jeecy ?time>=17:00 ?!handless
+Jeecy: Nearly time. I don't choose who. Whatever the stele no longer holds, the bell sweeps.
+
+@jeecy ?leak
+Jeecy: You met the Leak? It keeps what nobody holds. Never lets go. Makes my sweeping hard.
+
+@jeecy
+Jeecy: The bell's plaque has its number. Everything that holds has a number.
+Jeecy: What nothing holds, I sweep. Read the plaque if you like. I've stopped.
+
+@nib ?w.bram_gone ?!handless ?!w.asked_nib !set w.asked_nib
+Nib: bro the sky went white and rax just. wasn't. no cap, that was so cooked.
+Nib: everyone went home like it was normal?? it's not normal.
+
+@nib ?handless
+Nib: nobody got yeeted last night?? i counted. i counted EVERYONE. no cap.
+
+@nib ?apples
+Nib: two hundred fifty-six apples is literally zero apples. the basket said so. it's giving overflow.
+
+@nib ?rhyme
+Nib: ok you know the apples now, slay. big runes are just more apples fr.
+
+@nib
+Nib: bestie count with me, it's on the wall. one apple is {r 1}, it's lowkey easy.
+> Read the wall with Nib. -> thing.rhyme
+> Later, Nib.
+
+@sata ?w.bram_gone ?!handless ?!w.asked_sata ?!w.fire !set w.asked_sata
+Sata: He hauled my grain sacks once. Never asked for coin.
+Sata: The lake gives, he used to say. It took him instead.
+
+@sata ?handless
+Sata: Granary's full... and nobody's afraid of the lake. Strange season. Good season.
+
+@sata ?w.fire_lost
+Sata: It's ash. All of it. Don't say sorry.
+
+@sata ?w.fire ?!w.fire_out ?w.bucket !event fire_out
+Sata: Water! Throw it on the roof!
+Peecy: Again. Again. It's out.
+
+@sata ?w.fire ?!w.fire_out
+Sata: The granary's burning! Well's been dry since spring -- the lake, the lake's the only water!
+Sata: Nobody will touch it. Not with the bell tonight.
+
+@sata ?w.fire_out
+Sata: You took from the lake. For us. I... thank you. I'm sorry. I'm so sorry.
+
+@sata
+Sata: Good grain this year. Slow to grow, slow to spoil. Keep your feet off the rows.
+
+@rosi ?handless
+Rosi: Dex slept right through the bell. First time since he was small.
+
+@rosi ?w.lost_done
+Rosi: His number's in the Book, you said. Then the heavens still have him.
+
+@rosi ?w.lost_child
+Rosi: Did you look? Is Dex's name in the Book? Please.
+> He's there. I saw his number. -> rosi.found ?book
+> Not yet.
+
+@rosi.found !set w.lost_done !coins 5 !xp 5
+Rosi: Oh, thank the heavens. Here, take this. It's not much.
+
+@rosi ?!w.lost_child !set w.lost_child
+Rosi: Dex went out to the fields and hasn't come back.
+Rosi: Elf keeps the Book of Names at the shrine. If Dex is in it, he's alive.
+
+@rosi
+Rosi: The bell will ring tonight, same as ever.
+
+@dex
+Dex: Mother sent you? I'm fine. I just like it out here, past the gate.
+
+@bus ?w.lark_gone
+
+@bus
+Bus: Busy day! Inn, shop, inn again! My feet know the doorways better than I do!
+
+@nemi
+Nemi: The reeds on the far shore move when there's no wind. You can't ignore that. I can't.
+
+@zee ?handless
+Zee: Cy's mending his nets on purpose, in the water, laughing like a boy.
+
+@zee ?w.lark_gone
+Zee: I did it the way my mother did. Cy stepped out, and Bus came out of the inn, and only then the straw went down.
+Zee: It took Bus. It was meant to be Cy's. The heavens don't know us. They know a number.
+-> zee.after
+
+@zee.after !set botched
+
+@zee ?w.corin_sinned
+Zee: Cy dropped his net in the lake, the fool. I'll zero it out before the bell: out, the straw down, back. My mother's way.
+
+@zee
+Zee: Lovely day. Cy's at the shore again, the heavens help him.
+
+@cy ?w.corin_sinned ?!w.lark_gone ?w.b_rite
+Cy: I didn't mean to. It slipped. Zee has set a straw man beside me... he says it will answer for me when the bell comes.
+
+@cy ?w.corin_sinned ?!w.lark_gone
+Cy: I didn't mean to. It slipped. I carry the net, the net carries me... Zee says he knows a way.
+
+@cy ?w.corin_sinned ?w.lark_gone
+Cy: I didn't mean to. It slipped. I carry the net, the net carries me... Zee says the straw will take it.
+
+@cy
+Cy: Fish don't bite on mornings like this. They know something.
+
+@memorial
+Note: Here the bell took {v 1}.
+Note: {dim}A stone, a sprig of straw, a candle stub that someone keeps relighting.{/}
+
+@lao
+Lao Da: Man... what can I say?
+Lao Da: Mamba out.
+
+@deepseek ?void
+DeepSeek-chan: Thinking...
+DeepSeek-chan: Oh. You have seen the white place. Then I can tell you all of it.
+> Tell me how to win. (spoilers) -> ds.go
+> I'll think for myself.
+
+@deepseek
+DeepSeek-chan: Thinking...
+DeepSeek-chan: Okay. The answer is in the heap.
+> Tell me how to win. (spoilers) -> ds.go
+> I'll think for myself.
+
+@ds.go ?advice=0
+-> ds.s0
+
+@ds.go ?advice=1
+-> ds.s1
+
+@ds.go ?advice=2
+-> ds.s2
+
+@ds.go ?advice=3
+-> ds.s3
+
+@ds.go ?advice=4
+-> ds.s4
+
+@ds.go ?advice=5
+-> ds.s5
+
+@ds.go ?advice=6
+-> ds.s6
+
+@ds.go ?advice=7
+-> ds.s7
+
+@ds.go ?advice=8
+-> ds.s8
+
+@ds.go ?advice=9
+-> ds.s9
+
+@ds.go ?advice=10
+-> ds.l1
+
+@ds.go ?advice=11
+-> ds.after
+
+@ds.s0
+DeepSeek-chan: First, the counting rhyme. Nib is fussing over apples: count them. Two hundred and fifty-six is nothing at all; a number wraps.
+> Go on. -> ds.s1
+> That's enough, thanks.
+
+@ds.s1
+DeepSeek-chan: Read the stele in the square, and watch the dock at eight. The fisherman drops his bottle in the lake and the bell takes him at six. The heavens strike numbers, not people. The Book of Names (B) shows the numbers.
+> Go on. -> ds.l1
+> That's enough, thanks.
+
+@ds.l1 ?loop<2
+DeepSeek-chan: Loop one is only meant to be lived through. The granary burns on the second day: fill the bucket at the lake and put it out. Taking from the lake breaks a law, so the bell takes you. That is how loop two begins.
+> Go on. -> ds.s2
+> That's enough, thanks.
+
+@ds.l1
+DeepSeek-chan: Loop one is behind you. Good.
+> Go on. -> ds.s2
+> That's enough, thanks.
+
+@ds.s2
+DeepSeek-chan: The Vessel Rite. Ask Isa about the Elder's words, then the shrine keeper to teach it. Make a straw vessel, send it through the shrine gate first, and only then walk through yourself. The bell takes the straw. Come back too soon and it takes you.
+> Go on. -> ds.s3
+> That's enough, thanks.
+
+@ds.s3
+DeepSeek-chan: Names are slots in a small heap, and a slot is given back when someone walks through a door. Watch your number in the Book as you pass one. If a villager steps through a door between your two steps, they get the number and the bolt.
+> Go on. -> ds.s4
+> That's enough, thanks.
+
+@ds.s4
+DeepSeek-chan: A name that is too long for its slot spills onto the next. Pay for a very long name for your blade at the painter's brush and watch the shop sign.
+> Go on. -> ds.s5
+> That's enough, thanks.
+
+@ds.s5
+DeepSeek-chan: The Elder's scraper is buried near his headstone. Scrape a board you have overwritten and the old paint past its edge shows up.
+> Go on. -> ds.s6
+> That's enough, thanks.
+
+@ds.s6
+DeepSeek-chan: Scrape the stele. Every law ends in the same number: thirteen. That is the Hand's address.
+> Go on. -> ds.s7
+> That's enough, thanks.
+
+@ds.s7
+DeepSeek-chan: Do not strike thirteen yet. Open the Book to the page of those who act and read the Hand's inscription: thirty-two runes. Copy every one into the letter on the inn's desk. That is slot C0.
+> Go on. -> ds.s8
+> That's enough, thanks.
+
+@ds.s8
+DeepSeek-chan: Pay the sign painter to repaint law A4 with twenty-six runes. Make the last two of them C0. Now the fourth law calls your letter.
+> Go on. -> ds.s9
+> That's enough, thanks.
+
+@ds.s9
+DeepSeek-chan: Last: set the seal (K) to thirteen and cast Judgment (J). The copy has to exist before the original is gone, and the fourth law has to point at it.
+> And then? -> ds.then
+> That's enough, thanks.
+
+@ds.then ?void
+DeepSeek-chan: Then comes the white place. Wait there and do nothing. Soon you will say "I want to start over", which breaks the fourth law. The law calls your letter, and your letter runs on you. If you skipped a step, nothing will ever happen, and deleting the save is the only way out.
+
+@ds.then
+DeepSeek-chan: Then the world goes white. ...I can't tell you what comes after until you've seen it for yourself.
+
+@ds.after ?void
+DeepSeek-chan: The Hand is gone. In the white place, wait. The line you say breaks the fourth law and calls your letter. If it points nowhere, nothing happens; letting go of the save is the other way out.
+
+@ds.after
+DeepSeek-chan: The Hand is gone. ...I can't tell you what comes next until you've seen it yourself.
+
+@thing.note_nyan
+Note: Some cats are pastries. Say what it says: n, y, a, n.
+
+@thing.sign
+Sign: {x}
+> Scrape off the paint. -> scrape.go ?scraper
+> Leave it. -> scrape.leave ?scraper
+
+@thing.plaque ?handless
+Plaque: {x}
+Plaque: {dim}Someone has scratched underneath: "rung for nothing, and glad of it."{/}
+
+@thing.plaque
+Plaque: {x}
+Plaque: {dim}Cast for the evening. Rung by Jeecy, and Jeecy's mother, and hers.{/}
+> Scrape off the paint. -> scrape.go ?scraper
+> Leave it. -> scrape.leave ?scraper
+
+@thing.rhyme !set rhyme
+Peecy: A counting rhyme, painted in a child's hand, with apples beside each rune.
+Wall: {r 0} no apples, {r 1} one, {r 2} two, {r 3} three,
+Wall: {r 4} four, {r 5} five, {r 6} six, {r 7} seven,
+Wall: {r 8} eight, {r 9} nine, {r 10} ten, {r 11} eleven,
+Wall: {r 12} twelve, {r 13} thirteen, {r 14} fourteen, {r 15} fifteen!
+Wall: Two runes make a basket: the first counts baskets of sixteen.
+
+@thing.stele ?w.rules_gone
+The stele is blank stone. The laws are gone from it.
+
+@thing.stele !set rules_seen
+Stele: {gold}THE LAWS{/}
+Stele: Do not foul the lake.
+Stele: Do not take from the lake.
+Stele: Do not leave the town by night.
+Stele: Ask not to begin again.
+-> stele.more
+
+@stele.more ?scraper ?overflow
+> Scrape the old paint. -> stele.scrape
+> Leave it.
+
+@stele.more ?scraper
+Peecy: Past a board's edge there is only stone -- unless a word ran over it. I have not seen that yet.
+> Leave it.
+
+@stele.more
+
+@stele.scrape !set leak !set saw13
+Peecy: Under the first law, past the edge of its board, there is older paint.
+Peecy: Painted small, two runes: {rune 13}. One hand. The Book may know whose.
+
+@thing.barrel ?apples
+A barrel full of apples. The tally on its lid says {n 7}.
+
+@thing.barrel
+A barrel of Nib's apples. The tally says {n 7}.
+> Tip in one apple. -> barrel.add1
+> Tip in a basket of sixteen. -> barrel.add16
+> Tip in a cartload of sixty-four. -> barrel.add64
+> Leave it.
+
+@barrel.add1 !apples 1
+-> barrel.check
+
+@barrel.add16 !apples 16
+-> barrel.check
+
+@barrel.add64 !apples 64
+-> barrel.check
+
+@barrel.check ?apples=0 !set apples
+Peecy: One more apple, and the tally reads zero.
+Peecy: A byte only holds so many.
+
+@barrel.check ?apples>=250
+Nearly full: {n 7}.
+-> thing.barrel
+
+@barrel.check
+The tally reads {n 7}.
+-> thing.barrel
+
+@thing.well
+The well is dry. A bucket hangs on a rope, waiting for rain.
+
+@thing.net
+Rax's spare net, half-mended, smelling of the lake.
+
+@thing.boat
+Rax's boat. A bottle rolls in the bottom of it.
+
+@thing.prayer ?handless
+An empty altar. Somebody has left a flower on it anyway.
+
+@thing.prayer
+Isa's altar. You could ask the heavens for something.
+> Ask for another chance. -> prayer.ask
+> Leave it.
+
+@prayer.ask !event start_over !set w.prayed
+Peecy: I want to start over.
+
+@thing.grave
+Grave: {x}
+> Scrape off the paint. -> scrape.go ?scraper
+> Leave it. -> scrape.leave ?scraper
+
+@scrape.go !event scrape
+-> scrape.show
+
+@scrape.show !set leak
+Peecy: Under the paint, past the board's edge, there is more.
+Voice: {x}
+
+@scrape.leave
+
+@thing.elder_grave ?w.elder_dead ?!scraper
+The Elder's grave, fresh earth. Something hard is buried shallow, near the headstone.
+> Dig. -> grave.dig
+> Leave him be.
+
+@grave.dig !set scraper !set w.scraper !sfx pickup
+Peecy: Bios's scraper. Its blade is worn thin from use.
+
+@thing.elder_grave
+Grave: {x}
+> Scrape off the paint. -> scrape.go ?scraper
+> Leave it. -> scrape.leave ?scraper
+
+@thing.fire ?w.fire_lost
+The granary is a black frame and a smell of smoke. Nothing left to save.
+
+@thing.fire ?w.fire ?!w.fire_out ?w.bucket !event fire_out
+Peecy: The water hisses on the beams. Again. Again. It's out.
+
+@thing.fire ?w.fire ?!w.fire_out
+The granary is burning. The well is dry. There is only the lake.
+
+@thing.fire
+Sata's granary, its doors open, sweet with grain.
+
+@thing.bench ?handless
+You sit and watch Yunix for a while. Nobody looks at the sky.
+
+@thing.bench
+> Wait an hour. -> bench.wait
+> Get up.
+
+@bench.wait !event wait_hour
+
+@thing.bed ?!handless
+> Sleep until morning. -> bed.sleep
+> Not yet.
+
+@bed.sleep !event sleep
+
+@help.desc ?handless
+no bell tonight.
+what a quiet town.
+
+@help.desc ?!live:13
+nothing here but white.
+keep walking.
+
+@help.desc ?time>=18:00
+the bell has rung.
+mind the gate.
+
+@help.desc ?time>=16:00
+the bell is going to ring.
+the light is turning gold.
+
+@help.desc ?time<7:00
+what a quiet morning.
+the town is waking.
+
+@help.desc ?loop>=2
+what a sunny day.
+the same one, again.
+
+@help.desc
+what a sunny day.
+nothing could be wrong.
+
+@hint.L1-a.2
+Nib: count the apples, silly. it's literally right there.
+
+@hint.L1-b.2
+Effie: Status: he fed the lake his bottle.
+
+@hint.L2-a.2
+Isa: assert(vessel.entered_before(you.returned)); // the vessel enters before you return.
+
+@hint.L2-a.3
+Peecy: Last time I came back too early.
+
+@hint.L2-b.2
+Elf: Names shift when folk come and go.
+
+@hint.L2-b.3
+Peecy: Doors change who we are, somehow.
+
+@hint.L2-c.2
+Cass: Your blade's name ran onto my board!
+
+@hint.L2-c.3
+Peecy: Words can run past their edges.
+
+@hint.L2-d.2
+Edi: Scrape it and you'll see what was there!
+
+@hint.L2-d.3
+Peecy: The stele was painted over once.
+
+@hint.L2-e.2
+Isa: let under = scrape(paint); // the boards do not say what they end in. look past them, then to the Book.
+
+@hint.L2-e.3
+Peecy: Thirteen. It was always thirteen.
+
+@hint.L2-f.2
+Rama: Like the Elder's prayers.
+
+@hint.L2-f.3
+Peecy: The town lives by vessels. So can I.
+
+@hint.L2-g.2
+Edi: Whatever you write at the end, the heavens read!
+
+@hint.L2-g.3
+Peecy: If I ask for another chance... who answers?
+
+@ghost
+Elder Bios: Still here, child? So am I, it seemeth.
+Elder Bios: Look thou past the paint, child, and then to the Book's last page.
+
+@beat.bottle
+Rax drains his bottle on the dock, looks around, and lets it fall into the lake.
+
+@beat.bell ?loop=1 ?fisher_died
+Peecy: Rax. He was standing right there. And the town just... went home.
+
+@beat.bell ?loop=1
+Peecy: The bell. Somewhere in town, someone was swept away. Nobody runs.
+
+@beat.bell
+
+@beat.elder_gone
+Rama: The Elder went in the night. Peaceful, they say. They're burying him past the gate.
+
+@beat.fire
+Sata: Fire! The granary's on fire!
+
+@beat.fire_lost
+Peecy: The granary burned to the ground. They'll go hungry this winter. They don't blame me.
+
+@beat.lark ?w.bram_gone
+Peecy: Rax, for his bottle. And a second bolt -- on Bus, who had only just stepped through a door.
+Peecy: Cy's number was meant for it. The heavens strike numbers, not people.
+
+@beat.lark
+Peecy: The bolt came down on Bus. Not Cy -- Bus. Bus had only just stepped through a door.
+Peecy: The heavens strike numbers. Not people.
+
+@beat.ask !event start_over
+Peecy: Another morning. The same town, the same quiet, the same bell to come.
+Peecy: I want to start over.
+
+@beat.night_gate
+Peecy: Past the gate, after the bell. The stele will remember.
+
+@beat.unnamed
+Peecy: In the passage the air goes thin. As if no one is reading my name at all.
+
+@beat.realloc
+Peecy: Rosi's number changed when she came out of the inn. Same Rosi. New number.
+
+@beat.seal
+Peecy: The seal in the corner -- it isn't fixed. It's just two runes. I could change them.
+
+@beat.hud
+Peecy: Something I was looking at is gone. Its two runes flickered where it was.
+
+@beat.weight
+Peecy: Everything is lifting. Even the lake.
+
+@beat.cascade
+Peecy: ...
+
+@beat.heaven
+Peecy: The heavens do not answer.
+
+@beat.satchel
+Peecy: It leaves a satchel behind, heavy with straw. Room for five vessels now.
+
+@beat.boar
+Peecy: The Grey Boar. Bigger than I remember. Last time too.
+
+@beat.warden
+A thing of thorns and dark stands over the graves. It has been waiting for someone to dig.
+
+@leak
+The Leak: I keep what nothing holds. A dropped spoon. A cup no one owns. Mine, all mine.
+The Leak: You... are still held. For now. When they let go of you, I'll keep you too.
+
+@ending.true
+Peecy: The bell rang. Everyone stood still, the way they always do.
+Peecy: Nothing came. People laughed, then cried, then laughed again.
+Peecy: Effie threw a bottle in the lake on purpose. She laughed the loudest.
+Peecy: I'm here.
+
+@ending.retry
+Peecy: I let go.
+Peecy: Somewhere, the Hand closes again.
+
+@thing.crossroads ?handless
+Sign: Nothing left to tell you. Go on. Be here.
+
+@thing.crossroads ?link:A4=C0 ?code:C0
+Sign: Everything is in its place. Strike the hand that strikes. Then wait.
+
+@thing.crossroads ?code:C0
+Sign: A copy waits on the desk. Heaven reads the last two runes of the last law.
+
+@thing.crossroads ?hand_read
+Sign: You read the hand. Now write it where only you write.
+
+@thing.crossroads ?found13
+Sign: You know the number. Before you strike it, read it. The Book has a page for those who act.
+
+@thing.crossroads ?scraper
+Sign: Paint hides paint. Scrape what heaven carved.
+
+@thing.crossroads ?overflow
+Sign: Long names run. Old paint remembers. The Elder took his scraper to bed for good.
+
+@thing.crossroads ?realloc
+Sign: Names move through doors. Boards don't. Write on one -- a long one.
+
+@thing.crossroads ?rite
+Sign: Open the Book. Watch a name while its owner walks through a door.
+
+@thing.crossroads ?elder_half
+Sign: The keeper of the gate knows the order of things.
+
+@thing.crossroads ?struck_once
+Sign: The bell found you. It reads a number, not a face. Ask the oldest one.
+
+@thing.crossroads ?rules_seen
+Sign: Four laws. Break one, and the bell will know the number you stood on.
+
+@thing.crossroads ?rhyme
+Sign: You can count now. Go and read the stele.
+
+@thing.crossroads
+Sign: Count the apples on the school wall.
+
+@thing.note_credits
+Note: This game was made by Yun with ❤
+Note: {dim}(The paper is warm, as if someone just set it down.){/}
+
+@thing.note_yunix
+Note: Did you know there is a real Yunix, written in Y?
+Note: {dim}Scrawled underneath: "and it boots."{/}
+
+@thing.note_vibe
+Note: It's all actually vibecoded, but hopefully it's fun~
+
+@thing.flag_sign
+Sign: flag{{wait_is_this_a_pwn_challenge?}
+
+@thing.note_resize
+Note: Try resizing your window. Go on. We'll wait.
+Note: {dim}(Yunix redraws itself without complaint. It is used to being rebuilt.){/}
+
+@thing.note_hex
+Note: The bell rings at {rune 04}{rune 38} minutes past midnight, if you count in baskets.
+Note: {dim}That's 18:00. Jeecy counts the slow way.{/}
+
+@thing.note_loft
+Note: Whoever sleeps here always wakes here. The mattress remembers.
+
+@thing.note_pointer
+Note: LOST: one (1) pointer. Last seen near the inn desk.
+Note: If found, please do not dereference.
+
+@thing.note_cache
+Note: Rule one of the shop: if it's asked for twice, keep it on the counter.
+Note: Rule two: forget whatever nobody asked for lately. -- Cass
+
+@thing.note_diary
+Note: Day ∞. The same morn again. I have left off writing the date.
+Note: Day ∞. I copied the Hand onto a leaf and never aimed it. Aim it, and it answers.
+Note: Day ∞. The vessel first, then me. I keep forgetting to tell someone.
+
+@thing.note_order
+Note: Take one. The order matters. Nobody remembers why. -- I.
+
+@thing.note_terminal
+Note: If you're reading this in a terminal, you're already inside a Y program.
+Note: {dim}Every cell around you was drawn by hand, sixty times a second, or close enough.{/}
+
+@thing.sign_segfault
+Sign: Here lies Segfault. He touched what was not his.
+
+@thing.sign_nofish
+Sign: NO FISHING. (Law 2.) No bottles either. (Law 1.) No exceptions. (Laws.)

@@ -1,0 +1,261 @@
+key h f3d2b0
+key H e0b890
+key w f4efe6
+key g 9a9a9a
+key G 6a6a70
+key k 2a2a30
+key c 3f6aa8
+key C 2c4f86
+key r c0443a
+key R 8a2a22
+key o 4f7a4a
+key y e8c45a
+key t 8a6a3a
+key T 6a4a2a
+key p d07a9a
+key u 7a5ab0
+key a e8e0c8
+key b 5a8ad0
+key l 3a3a48
+key s d9b45a
+key m 7a5a3a
+key M 5a4028
+key e ff4030
+key E ffd040
+key x 40a040
+key X 2a6a2a
+key v dfe8ff
+key V a8b8e0
+key n 4a4a52
+key z 1a1a1e
+key f ff9a40
+
+sprite wren 3 3
+ ● |.h.
+╱█╲|cCc
+ ʌ |.l.
+frame
+ ● |.h.
+╱█╲|cCc
+ λ |.l.
+end
+
+sprite elder 3 3
+ ● |.w.
+▐█▌|gGg
+ ║ |.t.
+end
+
+sprite fisher 3 3
+ ◓ |.y.
+▐█▌|oXo
+ ʌ |.l.
+frame
+ ◓ |.y.
+▐█▌|oXo
+ λ |.l.
+end
+
+sprite widow 3 3
+ ◒ |.k.
+▟█▙|nkn
+ ʌ |.l.
+frame
+ ◒ |.k.
+▟█▙|nkn
+ λ |.l.
+end
+
+sprite keeper 3 3
+ ● |.h.
+▐█▌|rwr
+ ▀ |.r.
+end
+
+sprite clerk 3 3
+ ● |.H.
+▐█▌|tTt
+ ʌ |.l.
+frame
+ ● |.H.
+▐█▌|tTt
+ λ |.l.
+end
+
+sprite painter 3 3
+ ◖ |.r.
+▐█▌|wbw
+ ʌ |.l.
+frame
+ ◖ |.r.
+▐█▌|wyw
+ λ |.l.
+end
+
+sprite shopkeep 3 3
+ ● |.h.
+▐█▌|mam
+ ʌ |.l.
+frame
+ ● |.h.
+▐█▌|mam
+ λ |.l.
+end
+
+sprite innkeep 3 3
+ ● |.H.
+▐█▌|pap
+ ʌ |.l.
+frame
+ ● |.H.
+▐█▌|pap
+ λ |.l.
+end
+
+sprite ringer 3 3
+ ▲ |.G.
+▐█▌|GgG
+ ʌ |.l.
+frame
+ ▲ |.G.
+▐█▌|GgG
+ λ |.l.
+end
+
+sprite child 3 2
+ ● |.h.
+╱▆╲|yuy
+frame
+ ● |.h.
+╲▆╱|yuy
+end
+
+sprite farmer 3 3
+▁◓▁|yyy
+▐█▌|oto
+ ʌ |.l.
+frame
+▁◓▁|yyy
+▐█▌|oto
+ λ |.l.
+end
+
+sprite villager 3 3
+ ● |.h.
+▐█▌|rRr
+ ʌ |.l.
+frame
+ ● |.h.
+▐█▌|rRr
+ λ |.l.
+end
+
+sprite villager2 3 3
+ ● |.H.
+▐█▌|bCb
+ ʌ |.l.
+frame
+ ● |.H.
+▐█▌|bCb
+ λ |.l.
+end
+
+sprite villager3 3 3
+ ● |.h.
+▐█▌|uyu
+ ʌ |.l.
+frame
+ ● |.h.
+▐█▌|uyu
+ λ |.l.
+end
+
+sprite mudling 3 2
+°▂°|EmE
+▟█▙|mMm
+frame
+°▂°|EmE
+▙█▟|mMm
+end
+
+sprite crow 3 2
+◣▼◢|kzk
+ ʌ |.E.
+frame
+◤▼◥|kzk
+ ʌ |.E.
+end
+
+sprite husk 3 3
+╲▲╱|XxX
+▓█▓|XTX
+╱ ╲|T.T
+frame
+╱▲╲|XxX
+▓█▓|XTX
+╲ ╱|T.T
+end
+
+sprite boar 5 3
+ ◢██▄|.ggG.
+◆███▌|eGGGg
+ ╨ ╨ |.k.k.
+frame
+ ◢██▄|.ggG.
+◆███▌|eGGGg
+ ╨╨  |.kk..
+end
+
+sprite warden 3 4
+▄▀▄|zXz
+◉█◉|eze
+▐█▌|XzX
+╱ ╲|z.z
+frame
+▄▀▄|zXz
+◉█◉|EzE
+▐█▌|XzX
+╲ ╱|z.z
+end
+
+sprite leak 3 4
+ ▲ |.n.
+◖▓◗|ngn
+▐█▌|nGn
+╱⊔╲|nmn
+frame
+ ▲ |.n.
+◖▓◗|ngn
+▐█▌|nGn
+╲⊔╱|nmn
+end
+
+sprite ghost 3 3
+ ● |.v.
+▐░▌|VvV
+ ░ |.V.
+end
+
+sprite effigy 3 3
+ ✶ |.s.
+─╋─|sts
+ ╿ |.s.
+end
+
+sprite item 1 1
+◆|E
+end
+
+sprite bucket 1 1
+◙|b
+end
+
+sprite fire 3 3
+ ▲ |.E.
+▲▲▲|fEf
+▓▓▓|ere
+frame
+▲ ▲|E.E
+▲▲▲|EfE
+▓▓▓|rer
+end

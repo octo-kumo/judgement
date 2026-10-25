@@ -1,0 +1,13 @@
+build/
+*.log
+/judgement
+__pycache__/
+temp_deploy_key*
+*.pem
+*.key
+*.p12
+.env*
+*.orig
+.shots/
+.work/
+.audit/
