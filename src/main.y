@@ -3,6 +3,7 @@ import term;
 import gui;
 import game;
 import g;
+import web;
 
 let av = argv();
 let gui_mode = 0;
@@ -44,5 +45,21 @@ if (!term.start()) {
     print("Heavenly Rules needs a terminal or a display.");
     exit(1);
 };
+// The web page is 100%; let a large window use bigger cells so the title and
+// the book stay legible without asking the page to scale pixels.  The game
+// keeps at least an 80x24 grid at whatever scale it picks.
+if (web.available() && term.WINDOW && term.WIN != none) {
+    let c = gui.cols(term.WIN!);
+    let r = gui.rows(term.WIN!);
+    let s = c / 80;
+    if (r / 24 < s) { s = r / 24; };
+    if (s > 4) { s = 4; };
+    if (s > term.WIN_SCALE) {
+        term.WIN_SCALE = s;
+        gui.set_scale(term.WIN!, s);
+        term.win_fit();
+    };
+};
+gui.set_hard(true);
 let code = game.run();
 term.quit(code);

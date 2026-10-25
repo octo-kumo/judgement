@@ -1,0 +1,68 @@
+# Builds the browser game and publishes it to GitHub Pages.
+# One-time setup: Settings -> Pages -> Source: GitHub Actions.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out
+        uses: actions/checkout@v7
+
+      - name: Install latest ycc
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag=$(gh api repos/octo-kumo/ycc/releases/latest --jq .tag_name)
+          echo "Installing ycc $tag"
+          mkdir -p "$RUNNER_TEMP/ycc-dist" "$RUNNER_TEMP/ycc-src"
+          gh release download "$tag" --repo octo-kumo/ycc --pattern ycc --dir "$RUNNER_TEMP/ycc-dist"
+
+          # The release binary carries the standard library but not the web
+          # target's arch runtime, which it looks for under src/y/arch beside
+          # itself.  Keep it at the root of the matching source tree.
+          curl -fsSL --retry 3 "https://github.com/octo-kumo/ycc/archive/refs/tags/$tag.tar.gz" \
+            | tar xz -C "$RUNNER_TEMP/ycc-src" --strip-components=1
+          install -m 755 "$RUNNER_TEMP/ycc-dist/ycc" "$RUNNER_TEMP/ycc-src/ycc"
+          "$RUNNER_TEMP/ycc-src/ycc" -h >/dev/null 2>&1
+
+      - name: Build the web site
+        run: |
+          make web YCC="$RUNNER_TEMP/ycc-src/ycc"
+          test -s build/web/judgement/index.html
+          test -s build/web/judgement/judgement.wasm
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: build/web/judgement
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -22,6 +22,7 @@ win:
 	($(CAP) $(YCC) build --target=win --gc=auto --exec=off --obfuscate=full --obfuscate-no-anti-debug) </dev/null
 
 web:
+	rm -rf build/web/judgement build/web/bin
 	mkdir -p build
 	(cd tools/pack && $(CAP) $(YCC) build --gc=auto) </dev/null
 	tools/pack/build/pack

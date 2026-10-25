@@ -2,6 +2,8 @@
 import vault;
 import term;
 import input;
+import gui;
+import web;
 import canvas;
 import style;
 import text;
@@ -37,6 +39,7 @@ import logo;
 embed PACK from "../../build/data.pack";
 
 let RUNNING = true;
+let BASE_SCALE = 1;
 
 const M_PLAY = 0;
 const M_STRUCK = 1;
@@ -421,6 +424,31 @@ def relayout() -> void {
     canvas.fit();
     pix.resize();
     r3d.set_view();
+}
+
+// The web page is 100%; the game chooses its own cell size.  The world keeps
+// at least 80x24 cells (main.y chooses that scale), while a title or rune
+// screen may use bigger cells: it only has to hold its 41x13 frame.
+def use_scale(s: long) -> void {
+    if (s == term.WIN_SCALE || term.WIN == none) { return; };
+    term.WIN_SCALE = s;
+    gui.set_scale(term.WIN!, s);
+    term.win_fit();
+    relayout();
+}
+
+def title_scale() -> void {
+    if (!web.available() || term.WIN == none) { return; };
+    let c = gui.cols(term.WIN!);
+    let r = gui.rows(term.WIN!);
+    let s = c / 41;
+    if (r / 13 < s) { s = r / 13; };
+    if (s > 2) { s = 2; };
+    if (s > BASE_SCALE) { use_scale(s); };
+}
+
+def world_scale() -> void {
+    if (term.WIN_SCALE != BASE_SCALE) { use_scale(BASE_SCALE); };
 }
 
 def toast(id: long, a: long) -> void {
@@ -1765,6 +1793,7 @@ def ask_answer(readable: bool) -> void {
     style.use_set(g.RUNE_MODE);
     save.write_setting("runes", if (g.RUNE_MODE == 0) { "runic" } else if (g.RUNE_MODE == 1) { "symbols" } else { "ascii" });
     set_mode(ASK_PREV);
+    if (MODE != M_TITLE) { world_scale(); };
 }
 
 def ask_draw() -> void {
@@ -1800,12 +1829,11 @@ def settle_title() -> void {
         return;
     };
     set_mode(TITLE_PREV);
+    world_scale();
 }
 
 def run() -> long {
-
     save.warm();
-
     guard.arm();
     load_all();
     sfx.start(!g.MUTE);
@@ -1823,6 +1851,8 @@ def run() -> long {
     let need_ask = len(known) == 0 && !forced;
     let had_save = save.exists();
     boot();
+    BASE_SCALE = term.WIN_SCALE;
+    if (had_save || need_ask) { title_scale(); };
     if (had_save) {
 
         TITLE_PREV = MODE;
